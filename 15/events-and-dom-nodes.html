@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Handling Events</title>
+</head>
+<body>
+  <button>Click me</button>
+  <p>No hhandler here.</p>
+
+  <button>Act-once button</button>
+
+  <script>
+    let button = document.querySelectorAll('button')[0];
+    button.addEventListener('click', () => {
+      console.log('Button clicked');
+    });
+
+    let button2 = document.querySelectorAll('button')[1];
+    function once() {
+      console.log('Done.');
+      button2.removeEventListener('click', once);
+    }
+    button2.addEventListener('click', once);
+  </script>
+</body>
+</html>
